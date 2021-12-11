@@ -6,12 +6,13 @@ const geoCode = (address, callback) => {
   )}.json?access_token=pk.eyJ1IjoicmFrZXNoZHIiLCJhIjoiY2t4MGVrMW1uMTVzMDJvdXJhOWR0Y3EybyJ9.LJLbDfTH20icNgtSEtiGtQ&limit=1`;
 
   request({ url: url, json: true }, (err, res) => {
-    if (err || res.body.features.length === 0) {
+    if (err || res.body.features.length === 0 || !res.body) {
       callback('Unable to get coordinates', undefined);
     } else {
+      const {body}=res
       callback(
         undefined,
-        `${res.body.features[0].place_name} - Latitute: ${res.body.features[0].center[1]}, Longitude:${res.body.features[0].center[0]}`,
+        {latitude:body.features[0].center[1],longitude:body.features[0].center[0],location:body.features[0].place_name}
       );
     }
   });

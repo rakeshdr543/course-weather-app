@@ -4,13 +4,15 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "format": "prettier --write \"src/**/*.js\" \"test/**/*.ts\"",
-    "start":"node src/app.js"
+    "format": "prettier --write \"src/**/*.js\" \"public/**/*.ts\"",
+    "start": "node src/app.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.17.1",
+    "hbs": "^4.2.0",
     "request": "^2.88.2"
   },
   "devDependencies": {

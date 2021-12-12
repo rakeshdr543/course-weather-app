@@ -8,6 +8,7 @@ const forecast = (latitude, longitude, callback) => {
       callback('Unable to get weather data', undefined);
     } else {
       const { body } = res;
+      console.log(body)
       callback(
         undefined,
         `${body.current.weather_descriptions}, It is currently ${body.current.temperature} degrees out, but feels like ${body.current.feelslike} degree`,
